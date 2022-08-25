@@ -45,16 +45,9 @@ class Parser:
             return ""
 
         for index, row in block.iterrows():
-            try:
-                row[1] = dateSearch.sub(date, row[1])
-                row[1] = timeSearch.sub(time, row[1])
-                row[1] = hyphen.sub(" - ", row[1].lower())
-            except:
-                print(block)
-                print()
-                print(row)
-                print(row[1])
-                raise Exception
+            row[1] = dateSearch.sub(date, row[1])
+            row[1] = timeSearch.sub(time, row[1])
+            row[1] = hyphen.sub(" - ", row[1].lower())
             block.loc[index, 'finalDate'] = sectionDate
             block.loc[index, 'finalTime'] = sectionTime
 
@@ -141,11 +134,7 @@ class Parser:
                     block.columns = block.iloc[0]
                     schedule = schedule.append(self.parseBlock(block))
 
-        # schedule['finalTime'] = schedule['finalTime'].str.replace("‐", "-")
-        # schedule['Time'] = schedule['Time'].str.replace("‐", "-")
-
         schedule = schedule.apply(lambda x: x.str.strip()).apply(lambda x: x.str.replace("‐", "-"))
-        # schedule.reset_index(inplace=True, drop=True)
         schedule.set_index(['Days', 'Time'], inplace=True)
         self.schedule = schedule
 
@@ -157,14 +146,3 @@ class Parser:
 
     def getData(self) -> pd.DataFrame:
         return self.schedule
-
-
-# parser = Parser()
-# parser.parseFile("202208")
-# parser.parseCommon()
-# schedule = parser.schedule
-# common = parser.common
-
-
-
-
