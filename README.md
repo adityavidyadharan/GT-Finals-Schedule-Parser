@@ -13,6 +13,7 @@ schedule = parser.schedule
 common = parser.common
 ```
 
+### parseFile
 `parseFile` takes a term number as input and looks it up in `matrix.json` to find the PDF address. It returns a Pandas DataFrame where the index is a MultiIndex consisting of the *Meeting Days* and *Timeslot*
 
 **Example:**
@@ -24,9 +25,10 @@ common = parser.common
 | ('TRF', '8:25 am - 9:15 am')  | Dec 15, 2022 | 8:00 am - 10:50 am |
 | ('TR', '8:25 am - 9:15 am')   | Dec 15, 2022 | 8:00 am - 10:50 am |
 
-<br>
+### parseCommon
+
 `parseCommon` will generate a DataFrame with information about courses with the same timeslot for all sections
-<br>
+
 
 **Example:**
 
@@ -42,5 +44,6 @@ common = parser.common
 | MATH 1553 | Dec 13, 2022 | 6:00 PM - 8:50 PM |
 | MATH 1554 | Dec 13, 2022 | 6:00 PM - 8:50 PM |
 
+### export
 
 `export` will output the main schedule to a csv with name `title`
