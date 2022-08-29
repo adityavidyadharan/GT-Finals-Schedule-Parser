@@ -3,7 +3,7 @@ Module to parse the PDF provided by Georgia Tech with the semester's finals sche
 Provides output as both Pandas `DataFrame` and `CSV`
 
 # Purpose
-To parse the [PDFs](https://registrar.gatech.edu/files/202208%20Final%20Exam%20Matrix.pdf) found on the GT Registrar's [website](https://registrar.gatech.edu/files/202208%20Final%20Exam%20Matrix.pdf)
+To parse the [PDFs](https://registrar.gatech.edu/files/202208%20Final%20Exam%20Matrix.pdf) found on the GT Registrar's [website](https://registrar.gatech.edu/info/final-exam-matrix-fall-2022)
 
 # Usage
 
